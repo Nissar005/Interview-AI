@@ -1,0 +1,63 @@
+﻿<Window x:Class="PrivateAIOverlay.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="False"
+        Background="#0F141A"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="CanResize"
+        Title="Private AI Overlay"
+        Width="500"
+        Height="600"
+        MinWidth="320"
+        MinHeight="360"
+        WindowStartupLocation="Manual">
+    <Border CornerRadius="18" BorderBrush="#3A3A40" BorderThickness="1" Background="#111418" Margin="8">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="18" ShadowDepth="6" Opacity="0.45" Color="#000000" />
+        </Border.Effect>
+        <Grid Margin="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0,0,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Width="10" Height="10" Fill="#58D68D" Margin="0,0,8,0" />
+                    <TextBlock Text="Private AI" FontWeight="Bold" Foreground="#F0F4F8" FontSize="20" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="SettingsButton" Width="32" Height="32" Content="⚙" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#C4CED6" Margin="0,0,4,0" />
+                    <Button x:Name="MinimizeToggleButton" Width="32" Height="32" Content="—" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#C4CED6" />
+                    <Button x:Name="CloseButton" Width="32" Height="32" Content="×" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#FFB4B4" />
+                </StackPanel>
+            </Grid>
+
+            <ScrollViewer Grid.Row="1" Margin="0,0,0,10" VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="ResponseTextBlock" Text="Ask me anything..." Foreground="#E7EEF7" FontSize="16" TextWrapping="Wrap" Margin="4" />
+            </ScrollViewer>
+
+            <TextBox x:Name="InputTextBox" Grid.Row="2" Height="110" Margin="0,0,0,10" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                     Background="#1A1F26" Foreground="#EEF4FF" BorderBrush="#3D4B5C" BorderThickness="1" Padding="10" FontSize="15" />
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="ListenButton" Grid.Column="0" Height="42" Margin="0,0,8,0" Background="#1A3A5E" Foreground="#F2F8FF" BorderThickness="0" FontWeight="SemiBold" FontSize="16">
+                    🎙 LISTEN
+                </Button>
+
+                <Button x:Name="SendButton" Grid.Column="1" Width="120" Height="42" Background="#74B9FF" Foreground="#0E1D2A" BorderThickness="0" FontWeight="SemiBold" FontSize="15">
+                    Send
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
